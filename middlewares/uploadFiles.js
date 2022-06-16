@@ -19,9 +19,9 @@ module.exports = (req, res, next) => {
         if (!(/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i).test(file.originalname)) return next(new Error(`only images are allowed!!`));
 
         const path = `./uploads/${file.originalname}`;
-        if(file.size > maxFileSharpSize){
+        if (file.size > maxFileSharpSize) {
             await sharp(file.buffer).resize(500, 300).toFile(path);
-        }else{
+        } else {
             await sharp(file.buffer).toFile(path);
         }
         next();

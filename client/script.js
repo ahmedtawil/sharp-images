@@ -42,9 +42,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         loader.classList.remove("loader--hidden");
 
         console.log(res);
-        if(!res.success){
+        if (!res.success) {
             alert(res.error.msg);
-        } 
+        }
         location.reload();
     }
 
@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             return alert('fill inputs please!!');
         }
         const formData = new FormData();
-        formData.append('title' , title);
-        formData.append('img' , img);
+        formData.append('title', title);
+        formData.append('img', img);
         await addPost(formData);
     });
 });
